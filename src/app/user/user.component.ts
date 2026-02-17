@@ -1,4 +1,5 @@
 import { Component, computed, Input, signal, input, Output, EventEmitter, output } from '@angular/core';
+import { User } from './user.model';
 //import { DUMMY_USERS } from '../dummy-users';
 
 //const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
@@ -9,11 +10,6 @@ import { Component, computed, Input, signal, input, Output, EventEmitter, output
 //   name: string;
 // }
 
-interface User {
-  id: string;
-  avatar: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-user',
@@ -40,6 +36,7 @@ export class UserComponent {
   // @Input({required:true}) avatar!: string;
   // @Input({required:true}) name!: string;
   @Input({required: true}) user!: User;
+  @Input({required: true}) selected!:boolean;
   
   get imagePath(){
     return 'assets/users/' + this.user.avatar;
